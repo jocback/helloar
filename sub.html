@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <script>
+        if (navigator.userAgent.indexOf('KAKAO') >= 0) alert("해당 브라우저는 서비스를 지원하지 않습니다. 기본 브라우저를 이용해주세요.");
+        if (navigator.userAgent.indexOf('[FB') >= 0) alert("해당 브라우저는 서비스를 지원하지 않습니다. 기본 브라우저를 이용해주세요.");
+        if (navigator.userAgent.indexOf('Instagram') >= 0) alert("해당 브라우저는 서비스를 지원하지 않습니다. 기본 브라우저를 이용해주세요.");
+        if (navigator.userAgent.indexOf('trill') >= 0) alert("해당 브라우저는 서비스를 지원하지 않습니다. 기본 브라우저를 이용해주세요.");
+        if (navigator.userAgent.indexOf('NAVER') >= 0) alert("해당 브라우저는 서비스를 지원하지 않습니다. 기본 브라우저를 이용해주세요.");
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WWH9DNGHLQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-WWH9DNGHLQ');
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=0,maximum-scale=10,user-scalable=yes">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="imagetoolbar" content="no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+    <title>tab select</title>
+    <!-- 공통 Css //-->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Roboto&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <!-- 공통 Css //-->
+    <script src="./js/jquery-1.10.2.js"></script>
+	<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"></script>
+
+<style>
+    .progress-bar {
+      display: block;
+      width: 33%;
+      height: 10%;
+      max-height: 2%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      border-radius: 25px;
+      box-shadow: 0px 3px 10px 3px rgba(0, 0, 0, 0.5), 0px 0px 5px 1px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+ 
+    .progress-bar.hide {
+      visibility: hidden;
+      transition: visibility 0.3s;
+    }
+ 
+    .update-bar {
+      background-color: rgba(255, 255, 255, 0.9);
+      width: 0%;
+      height: 100%;
+      border-radius: 25px;
+      float: left;
+      transition: width 0.3s;
+    }
+
+    .progress-bar.hide {
+      visibility: hidden;
+      transition: visibility 0.3s;
+    }
+
+</style>
+</head>
+
+<body>
+	<section class="content">
+		<article class="container">
+			<div class="cont_wrp">
+				<div class="img_cont">
+					<div class="img_box" style="background: #ddd; height: 600px;">
+						<!-- 이미지 넣을 곳
+						<span class="img_btn">ar 버튼 위치</span> -->
+					<model-viewer id="duck" camera-controls touch-action="none" width="100%" height="100%" 
+						alt="A 3D model of a duck" ar-scale="fixed" xr - environment ios-src="">
+						<!-- AR 버튼 커스텀-->
+						<button id="customAr" slot="ar-button" style="background-color: white; border-radius: 4px; border: none; position: absolute; top: 16px; right: 16px; ">
+							👋 Activate AR
+						</button>
+						<!-- 프로그레스바 커스텀-->
+						<div class="progress-bar hide" slot="progress-bar">
+							<div class="update-bar"></div>
+						</div>
+					
+					</model-viewer>
+					</div>
+				</div>
+				<div class="tab_cont">
+					<h2 class="title">옵션선택<span class="title_span">(*옵션을 선택하시면 최종금액을 확인하실 수 있습니다.)</span></h2>
+					<div class="option_wrp size_option">
+						<span class="option_title">사이즈</span>
+						<ul class="option_ul sizeopt">
+							<li class="">
+								<a href="javascript:void(0);">1000</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">1500</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">1900</a>
+							</li>
+						</ul>
+					</div>
+					<div class="option_wrp color_option">
+						<span class="option_title">컬러</span>
+						<ul class="option_ul coloropt">
+							<li class=""> <!-- active 있을때 탭버튼 배경색 달라짐 -->
+								<a href="javascript:void(0);">blue</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">grey</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);">brown</a>
+							</li>
+						</ul>
+					</div>
+					<button type="button" style="border: 1px solid #ddd;width: 200px;height: 50px;font-size: 24px; margin-bottom:10px;" id="addBtn">추가</button>
+					<div class="option_area">
+						<!-- <div class="option_result">
+							<div class="result_text">
+								<p id="prdName">러그 1000/blue</p>
+								<ul class="result_num">
+									<li class="num_min">
+										<a href="javascript:void(0);"><span class="xi-minus"></span></a>
+									</li>
+									<li class="num_tit">
+										<span>1</span>
+									</li>
+									<li class="num_plu">
+										<a href="javascript:void(0);"><span class="xi-plus"></span></a>
+									</li>
+								</ul>
+							</div>
+							<button type="button" class="close_btn"><span class="xi-close"></span></button>
+						</div> -->
+					</div>
+					<div class="option_total">
+						<span class="total_tit">총 상품금액(수량)</span>
+						<p class="total_price">
+							<span class="total_ogPrice show">1,221,000원</span> <!-- show 있을때 오리지널 가격 표시되게 만듬 -->
+							<span class="total_rePrice">976,800원 (1개)</span>
+						</p>
+					</div>
+				</div>
+				
+			</div>
+		</article>
+	</section>
+
+
+	<div class="qr_div" style="display:none;">
+		<div class="container">
+			<div class="qr_img_wrp">
+				<div class="qr_img">
+					QR 이미지 넣을곳
+				</div>
+				<button type="button" class="qr_close_btn"><span class="xi-close"></span></button>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		$(document).ready(function() {
+			$(".qr_div").hide();
+			$(".img_btn").click(function(){
+				$(".qr_div").show();
+			});
+			$(".qr_close_btn").click(function(){
+				$(".qr_div").hide();
+			});
+
+			$(".option_ul li").on('click', function() {
+				$(this).parent('ul').find('li').removeClass('active');
+				$(this).addClass('active');
+				var size = $('.sizeopt').find('.active').children('a').text();
+				var color = $('.coloropt').find('.active').children('a').text();
+
+				if(size!='' && color!='') {
+					$("#duck").show();
+					$("#duck").attr("src", "https://hellovr.s3.ap-northeast-2.amazonaws.com/Rugs_Minimal/Circle_"+color+"_"+size+".gltf");
+					$("#duck").attr("iosSrc", "https://hellovr.s3.ap-northeast-2.amazonaws.com/Rugs_Minimal/Circle_"+color+"_"+size+".usdz");
+					document.querySelector('#duck').addEventListener('progress', onProgress);
+				}
+			});
+
+
+			// 추가버튼 클릭
+			$("#addBtn").on('click', function() {
+				var size = $('.sizeopt').find('.active').children('a').text();
+				var color = $('.coloropt').find('.active').children('a').text();
+				if(size!='' && color!='') {
+					var html = '';
+					html += '';
+					html += '<div class="option_result opt_'+size+'_'+color+'">';
+					html += '	<div class="result_text">';
+					html += '		<p id="prdName">러그 '+size+'/'+color+'</p>';
+					html += '		<ul class="result_num">';
+					html += '			<li class="num_min">';
+					html += '				<a href="javascript:void(0);"><span class="xi-minus"></span></a>';
+					html += '			</li>';
+					html += '			<li class="num_tit">';
+					html += '				<span>1</span>';
+					html += '			</li>';
+					html += '			<li class="num_plu">';
+					html += '				<a href="javascript:void(0);"><span class="xi-plus"></span></a>';
+					html += '			</li>';
+					html += '		</ul>';
+					html += '	</div>';
+					html += '	<button type="button" class="close_btn" onclick="closeOption(this);"><span class="xi-close"></span></button>';
+					html += '</div>';
+					$(".option_area").append(html);
+					$("#duck").hide();
+				}else {
+					alert('옵션을 선택해 주세요.');
+				}
+			});
+
+			$("#customAr").on('click', function(){
+				if (!Mobile()){// 모바일일 경우
+					$(".qr_div").show();
+				}
+			});
+
+			function Mobile(){
+				return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+			}
+				
+			var tt = $("#duck")[0].shadowRoot;
+			tt.querySelector('.container').querySelector('div .ar-button').style.display='block';
+			// tt.querySelector('#default-ar-button').style.bottom='80px';
+			// tt.querySelector('#default-ar-button').style.right='1%';
+
+			// 프로그레스바 이벤트 바인딩
+			document.querySelector('#duck').addEventListener('progress', onProgress);
+
+		});
+
+		function closeOption(el) {
+			$(el).parent().remove();
+		}
+
+		// 프로그레스바 호출 함수
+		const onProgress = (event) => {
+			$(".progress-bar").removeClass("hide");
+			const progressBar = event.target.querySelector('.progress-bar');
+			const updatingBar = event.target.querySelector('.update-bar');
+			updatingBar.style.width = `${event.detail.totalProgress*100}%`;
+			if (event.detail.totalProgress == 1) {
+				progressBar.classList.add('hide');
+			}
+		};
+	</script>
+</body>
+</html>

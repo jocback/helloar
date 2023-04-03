@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <script>
+        if (navigator.userAgent.indexOf('KAKAO') >= 0) alert("해당 브라우저는 서비스를 지원하지 않습니다. 기본 브라우저를 이용해주세요.");
+        if (navigator.userAgent.indexOf('[FB') >= 0) alert("해당 브라우저는 서비스를 지원하지 않습니다. 기본 브라우저를 이용해주세요.");
+        if (navigator.userAgent.indexOf('Instagram') >= 0) alert("해당 브라우저는 서비스를 지원하지 않습니다. 기본 브라우저를 이용해주세요.");
+        if (navigator.userAgent.indexOf('trill') >= 0) alert("해당 브라우저는 서비스를 지원하지 않습니다. 기본 브라우저를 이용해주세요.");
+        if (navigator.userAgent.indexOf('NAVER') >= 0) alert("해당 브라우저는 서비스를 지원하지 않습니다. 기본 브라우저를 이용해주세요.");
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WWH9DNGHLQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-WWH9DNGHLQ');
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=0,maximum-scale=10,user-scalable=yes">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="imagetoolbar" content="no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+    <title>Hello AR</title>
+    <!-- 공통 Css //-->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Roboto&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <!-- 공통 Css //-->
+    <script src="./js/jquery-1.10.2.js"></script>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="mSec">
+            <div class="mCon beforeCon" id="div_Cover">
+                먼저 옵션을 선택해 주세요.
+            </div>
+            <span
+                style="position: absolute; text-align: center; font-size: 15px; line-height: 100px; left: 50%; transform: translateX(-50%);">
+                <img src="/tem/img/Service.png" style="height: 15px; left:50%">
+            </span>
+            <model-viewer id="duck" camera-controls touch-action="none" width="100%" height="100%" src="" ar
+                alt="A 3D model of a duck" ar-scale="fixed" xr - environment ios-src="">
+            </model-viewer>
+        </div>
+        <div class="fixFunc">
+            <span class="openOpt"><a href="javascript:void(0);">옵션 선택하기</a></span>
+        </div>
+    </div>
+
+    <div class="optWrap">
+        <div id="div_Option">
+        </div>
+
+        <div class="fixFunc inner">
+            <span class="btnConfirm"><a href="javascript:void(0);">확인</a></span>
+            <!--		<span class="btnView"><a href="javascript:void(0);">AR 보기</a></span>-->
+        </div>
+    </div>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js">
+    </script>
+    <script src="./js/vrtest.js"></script>
+    <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+    <script type="text/javascript">
+        if (!wcs_add) var wcs_add = {};
+        wcs_add["wa"] = "ebdd8016c10608";
+        if (window.wcs) {
+            wcs_do();
+        }
+    </script>
+</body>
+
+</html>

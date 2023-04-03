@@ -1,0 +1,155 @@
+@charset "utf-8";
+
+/* Reset */
+*{margin:0;padding:0;}
+html,body{width:100%;}
+html{overflow-y:scroll; overflow-x:hidden;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,form,fieldset,p,button{margin:0;padding:0; font-family: 'Pretendard', sans-serif;}
+
+body,h1,h2,h3,h4,input,button{font-family: 'Pretendard', 'Noto Sans KR', 'Play', 'sans-serif'; font-size:14px; font-weight:400; letter-spacing:-1px; color:#333;}
+body{overflow:hidden; height:100%; background:#FFF; word-break:keep-all; padding:0; margin:0; position:relative;}
+body.noScroll {position:fixed; width:100%; height:100%; left:0; top:0; overflow:hidden;}
+img,fieldset,iframe{border:0 none}
+div {box-sizing:border-box;}
+li{list-style:none; box-sizing:border-box;}
+input,select,button{vertical-align:middle; font-family: 'Pretendard', 'Noto Sans KR', 'Play', 'sans-serif'; font-size:14px; font-weight:400; letter-spacing:-1px; outline:none; color:#333;}
+textarea {font-family:'Pretendard', 'Noto Sans KR', 'Play', 'sans-serif';}
+input {letter-spacing:0;}
+input, select:focus {outline: none;}
+*:focus {outline:none; box-shadow: none;}
+optgroup {font-weight: bolder;}
+img{vertical-align:middle}
+em,address{font-style:normal}
+label,button{cursor:pointer}
+button{margin:0;padding:0; border:0; background:none; cursor:pointer;}
+a{color:#333;text-decoration:none}
+a:hover{text-decoration:none;}
+button *{position:relative}
+legend,hr{visibility:hidden;width:0;height:0;font-size:0;line-height:0}
+caption{display:none; overflow:hidden;}
+table{border-collapse:collapse;table-layout:fixed; border-collapse:collapse;border-spacing:0;}
+table caption{display:none;}
+.clearfix:after { display:block; clear:both; height:0px; visibility:hidden; content:"."; }
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #ddd;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #ddd;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #ddd;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #ddd;
+}
+
+.chkB {display:inline-block;margin:0 8px 0 0;cursor:pointer;vertical-align:middle; padding:0;}
+.chkB input {position:absolute; visibility:hidden;position:static\9;visibility:visible\9;}
+.chkB input + span {display:inline-block;padding:3px 0px 3px 35px;padding:0\9;background:url(../img/bg_chk_off.png) no-repeat left 50%; background-size:25px 25px; background:none\9; font-size:16px;}
+.chkB input:checked + span {background:url(../img/bg_chk_on.png) no-repeat left 50%; background-size:25px 25px; background:none\9; color:#333;}
+
+.roboto {font-family: 'Roboto', sans-serif; letter-spacing:0;}
+
+div {position:relative;}
+div:after {content:''; clear:both; display:block; height:auto; overflow:hidden;}
+
+.wrap {max-width:720px; margin:0 auto;}
+.mSec {height:80vh;}
+.mSec .mCon {height:100vh; display:flex; justify-content:center; align-items:center;}
+.mSec .mCon.beforeCon {background:rgba(255, 255, 255, 0.8); color:#000; font-size:16px; font-weight:500;}
+.fixFunc {position:fixed; left:0; bottom:20px; width:100%; padding:0 20px; z-index:10; box-sizing:border-box;}
+.fixFunc.inner {z-index:30; display:none;}
+.btnView a {display:inline-block; width:100%; height:48px; line-height:48px; background:#000; color:#FFF; font-size:16px; font-weight:500; border-radius:4px; text-align:center;}
+.openOpt a {display:inline-block; width:100%; height:48px; line-height:46px; background:#FFF url(../img/ar_select.png) no-repeat 95% 50%; background-size:11px 6px; border:1px solid #EBEBEB; color:#000; font-size:16px; font-weight:500; border-radius:4px; text-align:left; padding:0 16px; box-sizing:border-box;}
+
+.optWrap {position:fixed; left:0; bottom:-100%; width:100%; height:auto; max-height:90%; border-radius:12px 12px 0 0; background:#FFF; padding:20px 20px 68px; z-index:20; overflow:hidden; overflow-y:auto; transition:.4s all;}
+.optWrap.on {bottom:0;}
+.optWrap .perOpt {margin-bottom:16px;}
+.optWrap .perOpt .optTitle {color:#000; font-size:20px; font-weight:500; padding:10px 0;}
+.optWrap .perOpt li {display:block; font-size:14px;}
+.optWrap .perOpt li a {display:block; color:#000; position:relative; padding:14px 0;}
+.optWrap .perOpt li a.on:after {content:''; position:absolute; right:0; top:50%; transform:translate(0, -50%); width:12px; height:9px; background:url(../img/ico_chk.png) no-repeat 50% 50%; background-size:100%;}
+.optWrap .perOpt li .cl {display:block; padding-left:30px;}
+.optWrap .perOpt li .cl.black:after {content:''; position:absolute; left:0; top:50%; transform:translate(0, -50%); width:24px; height:24px; border-radius:50%; background:#000;}
+.optWrap .perOpt li .cl.blue:after {content:''; position:absolute; left:0; top:50%; transform:translate(0, -50%); width:24px; height:24px; border-radius:50%; background:#4270ED;}
+.optWrap .perOpt li .cl.purple:after {content:''; position:absolute; left:0; top:50%; transform:translate(0, -50%); width:24px; height:24px; border-radius:50%; background:#8556E3;}
+.optWrap .perOpt li .cl.red:after {content:''; position:absolute; left:0; top:50%; transform:translate(0, -50%); width:24px; height:24px; border-radius:50%; background:#FF334B;}
+
+.btnConfirm a {display:inline-block; width:100%; height:48px; line-height:48px; background:#000; color:#FFF; font-size:16px; font-weight:500; border-radius:4px; text-align:center;}
+
+/* 22.11.18 수정 */
+#duck {width: 100%; height: 100%; max-width: calc(100% - 110px); left: 50%; transform: translateX(-50%);}
+
+@media screen and (max-width: 1024px){
+    #duck {max-width: calc(100% - 80px);}
+}
+
+@media screen and (max-width: 575px){
+    #duck {max-width: calc(100% - 40px);}
+}
+
+/* 23.03.27 추가 */
+.content {margin-top: 50px;}
+.container {max-width: 1640px; margin: 0 auto;}
+.cont_wrp {display: flex; flex-wrap: wrap;}
+.img_cont {padding: 0 20px; width: 55%;}
+.img_box {position: relative;}
+.img_btn {width: 40px; height: 40px; background: #fff; position: absolute; bottom: 5%; right: 4%; cursor: pointer;}
+
+.tab_cont {padding: 10px 20px; width: 45%;}
+.title {font-size: 17px; font-weight: 500; color: #111; margin-bottom: 25px;}
+.title_span {font-size: 13px; font-weight: 300; margin-left: 5px; color: #2e2b2b;}
+
+.option_wrp {margin-bottom: 20px;}
+.option_title {font-size: 14px; font-weight: 400; margin-bottom: 10px; color: #222; display: inline-block;}
+.option_ul {display: flex; flex-wrap: wrap;}
+.option_ul li {background: #f8f8f8; border: 1px solid #eee; width: 33.33%; padding: 7px 0; text-align: center; cursor: pointer;}
+.option_ul a {font-size: 14px; font-weight: 400; color: #666;}
+
+.option_result {position: relative; border: 1px solid #eee; padding: 20px 0; margin-bottom: 40px;}
+.option_result p {font-size: 16px; font-weight: 400; color: #151515; margin-bottom: 15px; padding: 0 20px;}
+.result_num {display: flex; flex-wrap: wrap; padding: 0 10px;}
+.result_num li {width: 30px; text-align: center;}
+.result_num .num_tit {font-size: 15px; font-weight: 400; color: #222; display: inline-block; text-align: center;}
+.result_num .xi-plus {font-size: 15px;}
+.result_num .xi-minus {font-size: 15px;}
+.close_btn {position: absolute; top: 50%; right: 25px; transform: translateY(-50%);}
+.close_btn .xi-close {font-size: 17px;}
+
+.option_total {border-top: 1px solid #eee; padding-top: 40px; display: flex; flex-wrap: wrap; width: 100%; justify-content: space-between; align-items: center;}
+.option_total::after {display: none;}
+.option_total .total_tit {font-size: 15px; font-weight: 500; color: #2e2b2b;}
+.option_total .total_ogPrice {font-size: 15px; font-weight: 400; color: #d3d3d3; text-decoration: line-through; display: none;}
+.option_total .total_rePrice {font-size: 21px; font-weight: 600; color: #2e2b2b; margin-left: 10px;}
+
+/* active 있을때 탭버튼 배경색 달라짐 */
+.active {background: #333 !important;}
+.active a {color: #fff !important;}
+/* show 있을때 오리지널 가격 보여줌 */
+.show {display: inline-block !important;}
+
+/* qr이미지 팝업 */
+.qr_div {position: absolute; top: 50px; left: 0; width: 100%;}
+.qr_div .container {padding: 0 20px;}
+.qr_div .qr_img_wrp {height: 600px; background: #ddd;}
+.qr_close_btn {position: absolute; top: 6%; right: 2%; font-size: 25px;}
+
+
+@media screen and (max-width: 1024px){
+  .img_cont {width: 100%;}
+  .tab_cont {width: 100%; padding: 30px 20px;}
+}
+
+@media screen and (max-width: 450px){
+  .title {margin-bottom: 20px;}
+  .title_span {margin-top: 5px; margin-left: 0; display: block;}
+
+  .option_result {margin-bottom: 25px; padding: 25px 0;}
+  .option_result p {font-size: 14px; padding: 0 15px;}
+
+  .option_total .total_price {width: 100%; text-align: right;}
+  .option_total .total_tit {font-size: 14px;}
+  .option_total .total_ogPrice {font-size: 14px;}
+  .option_total .total_rePrice {font-size: 18px;}
+}
