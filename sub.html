@@ -86,18 +86,21 @@
 					<div class="img_box" style="background: #ddd; height: 600px;">
 						<!-- 이미지 넣을 곳
 						<span class="img_btn">ar 버튼 위치</span> -->
-					<model-viewer id="duck" camera-controls touch-action="none" width="100%" height="100%" 
-						alt="A 3D model of a duck" ar-scale="fixed" xr - environment ios-src="">
-						<!-- AR 버튼 커스텀-->
-						<button id="customAr" slot="ar-button" style="background-color: white; border-radius: 4px; border: none; position: absolute; top: 16px; right: 16px; ">
-							👋 Activate AR
-						</button>
-						<!-- 프로그레스바 커스텀-->
-						<div class="progress-bar hide" slot="progress-bar">
-							<div class="update-bar"></div>
-						</div>
-					
-					</model-viewer>
+						<model-viewer id="duck" camera-controls touch-action="none" width="100%" height="100%" 
+							alt="A 3D model of a duck" ar-scale="fixed" xr - environment ios-src="">
+							<!-- AR 버튼 커스텀-->
+							<button id="customAr" slot="ar-button" style="background-color: white; border-radius: 4px; border: none; position: absolute; bottom: 7%; right: 4%;">
+								👋 Activate AR
+							</button>
+							<!-- 프로그레스바 커스텀-->
+							<div class="progress-bar hide" slot="progress-bar">
+								<div class="update-bar"></div>
+							</div>
+						
+						</model-viewer>
+					</div>
+					<div class="option_start">
+						<h2 class="option_start_title">옵션을 먼저 선택해주세요</h2>
 					</div>
 				</div>
 				<div class="tab_cont">
@@ -153,8 +156,9 @@
 					<div class="option_total">
 						<span class="total_tit">총 상품금액(수량)</span>
 						<p class="total_price">
-							<span class="total_ogPrice show">1,221,000원</span> <!-- show 있을때 오리지널 가격 표시되게 만듬 -->
-							<span class="total_rePrice">976,800원 (1개)</span>
+							<span class="total_ogPrice show">0원</span> <!-- show 있을때 오리지널 가격 표시되게 만듬 -->
+							<span class="total_rePrice">0원</span>
+							<span class="total_num">(0개)</span>
 						</p>
 					</div>
 				</div>
