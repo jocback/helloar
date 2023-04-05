@@ -156,7 +156,7 @@
 					<div class="option_total">
 						<span class="total_tit">총 상품금액(수량)</span>
 						<p class="total_price">
-							<span class="total_ogPrice show">0원</span> <!-- show 있을때 오리지널 가격 표시되게 만듬 -->
+							<span class="total_ogPrice show">10000원</span> <!-- show 있을때 오리지널 가격 표시되게 만듬 -->
 							<span class="total_rePrice">0원</span>
 							<span class="total_num">(0개)</span>
 						</p>
@@ -180,6 +180,9 @@
 	</div>
 
 	<script>
+		var price = 1000;
+		var totalprice = 0;
+		var pricecnt = 0;
 		$(document).ready(function() {
 			$(".qr_div").hide();
 			$(".img_btn").click(function(){
@@ -199,7 +202,9 @@
 					$("#duck").show();
 					$("#duck").attr("src", "https://hellovr.s3.ap-northeast-2.amazonaws.com/Rugs_Minimal/Circle_"+color+"_"+size+".gltf");
 					$("#duck").attr("iosSrc", "https://hellovr.s3.ap-northeast-2.amazonaws.com/Rugs_Minimal/Circle_"+color+"_"+size+".usdz");
+					$(".option_start").hide();
 					document.querySelector('#duck').addEventListener('progress', onProgress);
+
 				}
 			});
 
@@ -216,13 +221,13 @@
 					html += '		<p id="prdName">러그 '+size+'/'+color+'</p>';
 					html += '		<ul class="result_num">';
 					html += '			<li class="num_min">';
-					html += '				<a href="javascript:void(0);"><span class="xi-minus"></span></a>';
+					html += '				<a href="javascript:void(0);" onclick="removeCnt(this);"><span class="xi-minus"></span></a>';
 					html += '			</li>';
 					html += '			<li class="num_tit">';
 					html += '				<span>1</span>';
 					html += '			</li>';
 					html += '			<li class="num_plu">';
-					html += '				<a href="javascript:void(0);"><span class="xi-plus"></span></a>';
+					html += '				<a href="javascript:void(0);" onclick="addCnt(this);"><span class="xi-plus"></span></a>';
 					html += '			</li>';
 					html += '		</ul>';
 					html += '	</div>';
@@ -230,6 +235,13 @@
 					html += '</div>';
 					$(".option_area").append(html);
 					$("#duck").hide();
+					$(".option_start").show();
+
+					// 금액 더하기
+					totalprice = totalprice + 1000;
+					pricecnt = pricecnt+1;
+					$(".total_rePrice").text(totalprice+'원');
+					$(".total_num").text('('+pricecnt+')개');
 				}else {
 					alert('옵션을 선택해 주세요.');
 				}
@@ -255,8 +267,42 @@
 
 		});
 
+		// 옵션 닫기
 		function closeOption(el) {
+			var delCnt = $(el).parent().find('.num_tit span').text();
+
+			totalprice = totalprice-(1000*delCnt);
+			pricecnt = pricecnt-(1*delCnt);
+			$(".total_rePrice").text(totalprice+'원');
+			$(".total_num").text('('+pricecnt+')개');
+
 			$(el).parent().remove();
+		}
+
+		function removeCnt(el) {
+			var removeCnt=$(el).parents('.result_num').find('.num_tit span').text();
+			if(removeCnt==1) {
+				$(el).parents('.option_result').remove();
+			} else {
+				removeCnt = Number(removeCnt)-1;
+				$(el).parents('.result_num').find('.num_tit span').text(removeCnt);
+			}
+
+			totalprice = totalprice - 1000;
+			pricecnt = pricecnt-1;
+			$(".total_rePrice").text(totalprice+'원');
+			$(".total_num").text('('+pricecnt+')개');
+
+		}
+		function addCnt(el) {
+			var addCnt=$(el).parents('.result_num').find('.num_tit span').text();
+			addCnt = Number(addCnt)+1;
+			$(el).parents('.result_num').find('.num_tit span').text(addCnt);
+
+			totalprice = totalprice + 1000;
+			pricecnt = pricecnt+1;
+			$(".total_rePrice").text(totalprice+'원');
+			$(".total_num").text('('+pricecnt+')개');
 		}
 
 		// 프로그레스바 호출 함수
