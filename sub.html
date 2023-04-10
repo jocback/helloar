@@ -83,7 +83,7 @@
 		<article class="container">
 			<div class="cont_wrp">
 				<div class="img_cont">
-					<div class="img_box" style="background: #ddd; height: 600px;">
+					<div class="img_box" style="background: #fff; height: 600px;">
 						<!-- 이미지 넣을 곳
 						<span class="img_btn">ar 버튼 위치</span> -->
 						<model-viewer id="duck" camera-controls touch-action="none" width="100%" height="100%" 
@@ -104,9 +104,19 @@
 					</div>
 				</div>
 				<div class="tab_cont">
-					<h2 class="title">옵션선택<span class="title_span">(*옵션을 선택하시면 최종금액을 확인하실 수 있습니다.)</span></h2>
+					<div class="title">
+						<h3 class="product_brand">Pebble</h3>
+						<h2 class="product_name">Sofa - fabric</h2>
+						<h4 class="product_price">1,221,000원 ~</h4>
+					</div>
+					<div class="select_txt">
+						<h2 class="select_title">옵션선택<span class="select_title_span">(*옵션을 선택하시면 최종금액을 확인하실 수 있습니다.)</span></h2>
+					</div>
 					<div class="option_wrp size_option">
-						<span class="option_title">사이즈</span>
+						<div class="option_div">
+							<span class="option_title">사이즈</span>
+							<a href="javascript:void(0);" class="option_detail popup_size">상세 사이즈 보기</a><!-- 레이어팝업 클래스명 popup_size -->
+						</div>
 						<ul class="option_ul sizeopt">
 							<li class="">
 								<a href="javascript:void(0);">1000</a>
@@ -120,7 +130,10 @@
 						</ul>
 					</div>
 					<div class="option_wrp color_option">
-						<span class="option_title">컬러</span>
+						<div class="option_div">
+							<span class="option_title">컬러</span>
+							<a href="javascript:void(0);" class="option_detail popup_color">상세 컬러 보기</a><!-- 레이어팝업 클래스명 popup_color -->
+						</div>
 						<ul class="option_ul coloropt">
 							<li class=""> <!-- active 있을때 탭버튼 배경색 달라짐 -->
 								<a href="javascript:void(0);">blue</a>
@@ -133,7 +146,12 @@
 							</li>
 						</ul>
 					</div>
-					<button type="button" style="border: 1px solid #ddd;width: 200px;height: 50px;font-size: 24px; margin-bottom:10px;" id="addBtn">추가</button>
+					
+					<div class="addBtn_div">
+						<button type="button" class="addBtn" id="addBtn">
+							<span class="addBtn_txt"><b>선택상품담기</b>* 구매를 원하시면 선택하세요</span>
+						</button>
+					</div>
 					<div class="option_area">
 						<!-- <div class="option_result">
 							<div class="result_text">
@@ -160,9 +178,16 @@
 							<span class="total_rePrice">0원</span>
 							<span class="total_num">(0개)</span>
 						</p>
+						<ul class="purchase_box">
+							<li>
+								<a href="javascript:void(0);" class="basket">장바구니</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);" class="purchase">구매하기</a>
+							</li>
+						</ul>
 					</div>
 				</div>
-				
 			</div>
 		</article>
 	</section>
@@ -176,6 +201,20 @@
 				</div>
 				<button type="button" class="qr_close_btn"><span class="xi-close"></span></button>
 			</div>
+		</div>
+	</div>
+
+	<div class="size_div" style="display:none;">
+		<div class="container">
+			상세 사이즈 레이어팝업입니다.
+			<button type="button" class="qr_close_btn"><span class="xi-close"></span></button>
+		</div>
+	</div>
+
+	<div class="color_div" style="display:none;">
+		<div class="container">
+			상세 컬러 레이어팝업입니다.
+			<button type="button" class="qr_close_btn"><span class="xi-close"></span></button>
 		</div>
 	</div>
 

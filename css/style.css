@@ -91,6 +91,7 @@ div:after {content:''; clear:both; display:block; height:auto; overflow:hidden;}
 
 /* 23.03.27 추가 */
 /* 23.04.05 수정 */
+/* 23.04.10 수정*/
 .content {margin-top: 50px;}
 .container {max-width: 1640px; margin: 0 auto;}
 .cont_wrp {display: flex; flex-wrap: wrap;}
@@ -99,13 +100,23 @@ div:after {content:''; clear:both; display:block; height:auto; overflow:hidden;}
 .img_btn {width: 40px; height: 40px; background: #fff; position: absolute; bottom: 5%; right: 4%; cursor: pointer;}
 
 .tab_cont {padding: 10px 20px; width: 45%;}
-.title {font-size: 17px; font-weight: 500; color: #111; margin-bottom: 25px;}
-.title_span {font-size: 13px; font-weight: 300; margin-left: 5px; color: #2e2b2b;}
 
-.option_wrp {margin-bottom: 20px;}
+.title {margin-bottom: 50px; color: #111;}
+.product_brand {font-size: 15px; font-weight: 400; margin-bottom: 8px;}
+.product_name {font-size: 20px; font-weight: 600; margin-bottom: 25px;}
+.product_price {font-size: 18px; font-weight: 400;}
+
+.select_txt {margin-bottom: 25px;}
+.select_title {font-size: 15px; font-weight: 600; color: #111}
+.select_title_span {font-size: 12px; font-weight: 300; margin-left: 5px; color: #2e2b2b;}
+
+.option_wrp {margin-bottom: 25px;}
+.option_div {display: flex; flex-wrap: wrap; justify-content: space-between; width: 100%;}
+.option_div::after {display: none;}
 .option_title {font-size: 14px; font-weight: 400; margin-bottom: 10px; color: #222; display: inline-block;}
+.option_detail {font-size: 13px; font-weight: 300; text-decoration: underline; color: #777; display: inline-block;}
 .option_ul {display: flex; flex-wrap: wrap;}
-.option_ul li {background: #fff; border: 1px solid #eee; width: 33.33%; padding: 7px 0; text-align: center; cursor: pointer;}
+.option_ul li {background: #f8f8f8; border: 1px solid #eee; width: 33.33%; padding: 10px 0; text-align: center; cursor: pointer;}
 .option_ul a {font-size: 14px; font-weight: 400; color: #666;}
 
 .option_start {position: absolute; top: 0; left: 20px; background: #f8f8f8; width: calc(100% - 20px); height: 100%;}
@@ -121,12 +132,25 @@ div:after {content:''; clear:both; display:block; height:auto; overflow:hidden;}
 .close_btn {position: absolute; top: 50%; right: 25px; transform: translateY(-50%);}
 .close_btn .xi-close {font-size: 17px;}
 
-.option_total {border-top: 1px solid #eee; padding-top: 40px; display: flex; flex-wrap: wrap; width: 100%; justify-content: space-between; align-items: center;}
+.addBtn_div {border: 1px solid #eee; background: #fff; margin-bottom: 50px;}
+.addBtn_div::after {display: none;}
+.addBtn_div .addBtn {display: block; width: 100%; position: relative; text-align: left; padding: 18px 20px;}
+.addBtn_div .addBtn::before {content: ""; position: absolute; top: 50%; transform: translateY(-50%); right: 20px; border-top: 8px solid #000; border-right: 6px solid transparent; border-left: 6px solid transparent; display: block;}
+.addBtn_div .addBtn_txt {font-size: 14px; font-weight: 500; color: #757575;}
+.addBtn_div .addBtn_txt > b {font-size: 14px; font-weight: 600; color: #111; padding-right: 5px;}
+
+.option_total {border-top: 1px solid #eee; padding-top: 30px; display: flex; flex-wrap: wrap; width: 100%; justify-content: space-between; align-items: center;}
 .option_total::after {display: none;}
 .option_total .total_tit {font-size: 15px; font-weight: 500; color: #2e2b2b;}
 .option_total .total_ogPrice {font-size: 15px; font-weight: 400; color: #d3d3d3; text-decoration: line-through; display: none;}
 .option_total .total_rePrice {font-size: 21px; font-weight: 600; color: #2e2b2b; margin-left: 10px;}
 .option_total .total_num {font-size: 21px; font-weight: 600; color: #2e2b2b; margin-left: 3px;}
+
+.purchase_box {margin-top: 30px; display: flex; flex-wrap: wrap; width: 100%;}
+.purchase_box li {width: 50%; padding-right: 10px; text-align: center;}
+.purchase_box li:last-child {padding-right: 0px;}
+.purchase_box .basket {font-size: 16px; font-weight: 400; color: #2e2b2b; border: 1px solid #707070; display: block; width: 100%; padding: 13px 0;}
+.purchase_box .purchase {font-size: 16px; font-weight: 400; color: #fff; border: 1px solid #0b0b0b; background: #0b0b0b; display: block; width: 100%; padding: 13px 0;}
 
 /* active 있을때 탭버튼 배경색 달라짐 */
 .active {background: #333 !important;}
@@ -148,8 +172,8 @@ div:after {content:''; clear:both; display:block; height:auto; overflow:hidden;}
 }
 
 @media screen and (max-width: 450px){
-  .title {margin-bottom: 20px;}
-  .title_span {margin-top: 5px; margin-left: 0; display: block;}
+  .select_title {margin-bottom: 20px;}
+  .select_title_span {margin-top: 5px; margin-left: 0; display: block;}
 
   .option_result {margin-bottom: 25px; padding: 25px 0;}
   .option_result p {font-size: 14px; padding: 0 15px;}
