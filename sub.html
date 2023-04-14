@@ -117,16 +117,15 @@
 							<span class="option_title">사이즈</span>
 							<a href="javascript:void(0);" class="option_detail popup_size">상세 사이즈 보기</a><!-- 레이어팝업 클래스명 popup_size -->
 						</div>
-						<ul class="option_ul sizeopt">
-							<li class="">
-								<a href="javascript:void(0);">1000</a>
-							</li>
-							<li>
-								<a href="javascript:void(0);">1500</a>
-							</li>
-							<li>
-								<a href="javascript:void(0);">1900</a>
-							</li>
+						<ul class="option_ul option1">
+							<!-- active 있을때 탭버튼 배경색 달라짐 -->
+							<li><a href="javascript:void(0);" data-value="peb1">소파1인</a></li>
+							<li><a href="javascript:void(0);" data-value="peb2A">소파2인A</a></li>
+							<li><a href="javascript:void(0);" data-value="peb2B">소파2인B</a></li>
+							<li><a href="javascript:void(0);" data-value="peb3A">소파3인A</a></li>
+							<li><a href="javascript:void(0);" data-value="peb3B">소파3인B</a></li>
+							<li><a href="javascript:void(0);" data-value="peb3C">소파3인C</a></li>
+							<li><a href="javascript:void(0);" data-value="peb4">소파4인</a></li>
 						</ul>
 					</div>
 					<div class="option_wrp color_option">
@@ -134,16 +133,16 @@
 							<span class="option_title">컬러</span>
 							<a href="javascript:void(0);" class="option_detail popup_color">상세 컬러 보기</a><!-- 레이어팝업 클래스명 popup_color -->
 						</div>
-						<ul class="option_ul coloropt">
-							<li class=""> <!-- active 있을때 탭버튼 배경색 달라짐 -->
-								<a href="javascript:void(0);">blue</a>
-							</li>
-							<li>
-								<a href="javascript:void(0);">grey</a>
-							</li>
-							<li>
-								<a href="javascript:void(0);">brown</a>
-							</li>
+						<ul class="option_ul option2">
+							<li><a href="javascript:void(0);" data-value="nor101">nor101</a></li>
+							<li><a href="javascript:void(0);" data-value="nor114">nor114</a></li>
+							<li><a href="javascript:void(0);" data-value="nor115">nor115</a></li>
+							<li><a href="javascript:void(0);" data-value="nor117">nor117</a></li>
+							<li><a href="javascript:void(0);" data-value="vel07">vel07</a></li>
+							<li><a href="javascript:void(0);" data-value="vel08">vel08</a></li>
+							<li><a href="javascript:void(0);" data-value="vel38">vel38</a></li>
+							<li><a href="javascript:void(0);" data-value="vel47">vel47</a></li>
+							<li><a href="javascript:void(0);" data-value="vel71">vel71</a></li>
 						</ul>
 					</div>
 					
@@ -174,7 +173,7 @@
 					<div class="option_total">
 						<span class="total_tit">총 상품금액(수량)</span>
 						<p class="total_price">
-							<span class="total_ogPrice show">10000원</span> <!-- show 있을때 오리지널 가격 표시되게 만듬 -->
+							<span class="total_ogPrice ">10000원</span> <!-- show 있을때 오리지널 가격 표시되게 만듬 -->
 							<span class="total_rePrice">0원</span>
 							<span class="total_num">(0개)</span>
 						</p>
@@ -196,7 +195,7 @@
 	<div class="qr_div" style="display:none;">
 		<div class="container">
 			<div class="qr_img_wrp">
-				<div class="qr_img">
+				<div class="qr_img" id="popup_text">
 					QR 이미지 넣을곳
 				</div>
 				<button type="button" class="qr_close_btn"><span class="xi-close"></span></button>
@@ -219,7 +218,7 @@
 	</div>
 
 	<script>
-		var price = 1000;
+		var price = 1221000;
 		var totalprice = 0;
 		var pricecnt = 0;
 		$(document).ready(function() {
@@ -230,17 +229,39 @@
 			$(".qr_close_btn").click(function(){
 				$(".qr_div").hide();
 			});
+			
+			$(".popup_size").on('click', function() {
+				$("#popup_text").text("상세 사이즈 레이어팝업입니다.");
+				$(".qr_div").show();
+			});
+
+			$(".popup_color").on('click', function(){
+				$("#popup_text").text("상세 컬러 레이어팝업입니다.");
+				$(".qr_div").show();
+			});
+
 
 			$(".option_ul li").on('click', function() {
 				$(this).parent('ul').find('li').removeClass('active');
 				$(this).addClass('active');
-				var size = $('.sizeopt').find('.active').children('a').text();
-				var color = $('.coloropt').find('.active').children('a').text();
+				var opt1 = $('.option1').find('.active').children('a').data('value');
+				var opt2 = $('.option2').find('.active').children('a').data('value');
 
-				if(size!='' && color!='') {
+				if(opt1!=null && opt2!=null) {
 					$("#duck").show();
-					$("#duck").attr("src", "https://hellovr.s3.ap-northeast-2.amazonaws.com/Rugs_Minimal/Circle_"+color+"_"+size+".gltf");
-					$("#duck").attr("iosSrc", "https://hellovr.s3.ap-northeast-2.amazonaws.com/Rugs_Minimal/Circle_"+color+"_"+size+".usdz");
+					// $("#duck").attr("src", "https://hellovr.s3.ap-northeast-2.amazonaws.com/Rugs_Minimal/Circle_"+opt2+"_"+opt1+".gltf");
+					// $("#duck").attr("iosSrc", "https://hellovr.s3.ap-northeast-2.amazonaws.com/Rugs_Minimal/Circle_"+opt2+"_"+opt1+".usdz");
+
+					console.log("https://helloar.s3.ap-northeast-2.amazonaws.com/JC/Pebble/"+opt1+"/JACK_"+opt1+"_"+opt2+".glb");
+					console.log("https://helloar.s3.ap-northeast-2.amazonaws.com/JC/Pebble/"+opt1+"/JACK_"+opt1+"_"+opt2+".usdz");
+
+					$("#duck").attr("src", "https://helloar.s3.ap-northeast-2.amazonaws.com/JC/Pebble/"+opt1+"/JACK_"+opt1+"_"+opt2+".glb");
+					$("#duck").attr("iosSrc", "https://helloar.s3.ap-northeast-2.amazonaws.com/JC/Pebble/"+opt1+"/JACK_"+opt1+"_"+opt2+".usdz");
+
+					// $("#duck").attr("src", "https://helloar.s3.ap-northeast-2.amazonaws.com/JC/Pebble/peb2A/JACK_peb2A_nor101.glb");
+					// $("#duck").attr("iosSrc", "https://helloar.s3.ap-northeast-2.amazonaws.com/JC/Pebble/peb2A/JACK_peb2A_nor101.usdz");
+
+					
 					$(".option_start").hide();
 					document.querySelector('#duck').addEventListener('progress', onProgress);
 
@@ -250,37 +271,51 @@
 
 			// 추가버튼 클릭
 			$("#addBtn").on('click', function() {
-				var size = $('.sizeopt').find('.active').children('a').text();
-				var color = $('.coloropt').find('.active').children('a').text();
-				if(size!='' && color!='') {
-					var html = '';
-					html += '';
-					html += '<div class="option_result opt_'+size+'_'+color+'">';
-					html += '	<div class="result_text">';
-					html += '		<p id="prdName">러그 '+size+'/'+color+'</p>';
-					html += '		<ul class="result_num">';
-					html += '			<li class="num_min">';
-					html += '				<a href="javascript:void(0);" onclick="removeCnt(this);"><span class="xi-minus"></span></a>';
-					html += '			</li>';
-					html += '			<li class="num_tit">';
-					html += '				<span>1</span>';
-					html += '			</li>';
-					html += '			<li class="num_plu">';
-					html += '				<a href="javascript:void(0);" onclick="addCnt(this);"><span class="xi-plus"></span></a>';
-					html += '			</li>';
-					html += '		</ul>';
-					html += '	</div>';
-					html += '	<button type="button" class="close_btn" onclick="closeOption(this);"><span class="xi-close"></span></button>';
-					html += '</div>';
-					$(".option_area").append(html);
-					$("#duck").hide();
-					$(".option_start").show();
+				var opt1 = $('.option1').find('.active').children('a').data('value');
+				var opt2 = $('.option2').find('.active').children('a').data('value');
+				var opt1Str = $('.option1').find('.active').children('a').text();
+				var opt2Str = $('.option2').find('.active').children('a').text();
 
-					// 금액 더하기
-					totalprice = totalprice + 1000;
-					pricecnt = pricecnt+1;
-					$(".total_rePrice").text(totalprice+'원');
-					$(".total_num").text('('+pricecnt+')개');
+
+				// opt_peb1_nor101
+
+				if(opt1!=null && opt2!=null) {
+
+					if($(".opt_"+opt1+"_"+opt2).length > 0) {
+						// console.log($(".opt_"+opt1+"_"+opt2).find(".num_plu").children('a').html)
+						// addCnt($(".opt_"+opt1+"_"+opt2).find(".num_plu").children('a'));
+						alert('이미 담긴 상품입니다.');
+					} else {
+						var html = '';
+						html += '';
+						html += '<div class="option_result opt_'+opt1+'_'+opt2+'">';
+						html += '	<div class="result_text">';
+						html += '		<p id="prdName">러그 '+opt1Str+'/'+opt2Str+'</p>';
+						html += '		<ul class="result_num">';
+						html += '			<li class="num_min">';
+						html += '				<a href="javascript:void(0);" onclick="removeCnt(this);"><span class="xi-minus"></span></a>';
+						html += '			</li>';
+						html += '			<li class="num_tit">';
+						html += '				<span>1</span>';
+						html += '			</li>';
+						html += '			<li class="num_plu">';
+						html += '				<a href="javascript:void(0);" onclick="addCnt(this);"><span class="xi-plus"></span></a>';
+						html += '			</li>';
+						html += '		</ul>';
+						html += '	</div>';
+						html += '	<button type="button" class="close_btn" onclick="closeOption(this);"><span class="xi-close"></span></button>';
+						html += '</div>';
+						$(".option_area").append(html);
+						// $("#duck").hide();
+						// $(".option_start").show();
+
+						// 금액 더하기
+						totalprice = totalprice + price;
+						pricecnt = pricecnt+1;
+						$(".total_rePrice").text(totalprice+'원');
+						$(".total_num").text('('+pricecnt+')개');
+					}
+
 				}else {
 					alert('옵션을 선택해 주세요.');
 				}
@@ -288,13 +323,10 @@
 
 			$("#customAr").on('click', function(){
 				if (!Mobile()){// 모바일일 경우
+					$("#popup_text").text("QR 이미지 넣을곳");
 					$(".qr_div").show();
 				}
 			});
-
-			function Mobile(){
-				return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-			}
 				
 			var tt = $("#duck")[0].shadowRoot;
 			tt.querySelector('.container').querySelector('div .ar-button').style.display='block';
@@ -310,12 +342,17 @@
 		function closeOption(el) {
 			var delCnt = $(el).parent().find('.num_tit span').text();
 
-			totalprice = totalprice-(1000*delCnt);
+			totalprice = totalprice-(price*delCnt);
 			pricecnt = pricecnt-(1*delCnt);
 			$(".total_rePrice").text(totalprice+'원');
 			$(".total_num").text('('+pricecnt+')개');
 
 			$(el).parent().remove();
+		}
+
+		// 모바일 여부 체크
+		function Mobile(){
+			return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 		}
 
 		function removeCnt(el) {
@@ -327,7 +364,7 @@
 				$(el).parents('.result_num').find('.num_tit span').text(removeCnt);
 			}
 
-			totalprice = totalprice - 1000;
+			totalprice = totalprice - price;
 			pricecnt = pricecnt-1;
 			$(".total_rePrice").text(totalprice+'원');
 			$(".total_num").text('('+pricecnt+')개');
@@ -338,7 +375,7 @@
 			addCnt = Number(addCnt)+1;
 			$(el).parents('.result_num').find('.num_tit span').text(addCnt);
 
-			totalprice = totalprice + 1000;
+			totalprice = totalprice + price;
 			pricecnt = pricecnt+1;
 			$(".total_rePrice").text(totalprice+'원');
 			$(".total_num").text('('+pricecnt+')개');

@@ -134,8 +134,8 @@ div:after {content:''; clear:both; display:block; height:auto; overflow:hidden;}
 
 .addBtn_div {border: 1px solid #eee; background: #fff; margin-bottom: 50px;}
 .addBtn_div::after {display: none;}
-.addBtn_div .addBtn {display: block; width: 100%; position: relative; text-align: left; padding: 18px 20px;}
-.addBtn_div .addBtn::before {content: ""; position: absolute; top: 50%; transform: translateY(-50%); right: 20px; border-top: 8px solid #000; border-right: 6px solid transparent; border-left: 6px solid transparent; display: block;}
+.addBtn_div .addBtn {display: block; width: 100%; position: relative; text-align: center; padding: 18px 20px;}
+/* .addBtn_div .addBtn::before {content: ""; position: absolute; top: 50%; transform: translateY(-50%); right: 20px; border-top: 8px solid #000; border-right: 6px solid transparent; border-left: 6px solid transparent; display: block;} */
 .addBtn_div .addBtn_txt {font-size: 14px; font-weight: 500; color: #757575;}
 .addBtn_div .addBtn_txt > b {font-size: 14px; font-weight: 600; color: #111; padding-right: 5px;}
 
